@@ -1,0 +1,43 @@
+import random
+
+def rzut_kostka():
+    return random.randint(1, 6)
+
+suma1=0
+suma2=0
+rzut1=0
+rzut2=0
+w1=0
+w2=0
+d=1
+i=1
+j=1
+x=int(input("podaj ilosc gier"))
+
+while j <= x:
+    suma1 = 0
+    suma2 = 0
+    print("Gra numer %s" % d)
+    for i in range(1,3):
+        rzut1=rzut_kostka()
+        rzut2=rzut_kostka()
+        print("wynik %s rzutu dla I  gracza = %s" % (i, rzut1))
+        print("wynik %s rzutu dla II gracza = %s" % (i, rzut2))
+        suma1 +=rzut1
+        suma2 +=rzut2
+    print("wynik sumy dla I  gracza = %s" % suma1)
+    print("wynik sumy dla II gracza = %s" % suma2)
+    if suma1>suma2:
+        w1+=1
+        print("wynik %s %s" %(w1,w2))
+    elif suma1<suma2:
+        w2+=1
+        print("wynik %s %s" %(w1,w2))
+    else:
+        print("remis %s %s" %(w1,w2))
+    if j==x and w1==w2:
+        print('dogrywka')
+        j-=1
+    j +=1
+    d +=1
+print("Koniec");
